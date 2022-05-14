@@ -1,6 +1,14 @@
 import './index.scss'
 
-const AnimatedLetters = ({ letterClass, str, index }) => {
+const AnimatedLetters = ({
+  letterClass,
+  str,
+  index,
+}: {
+  letterClass: string
+  str: string
+  index: number
+}) => {
   return (
     <span>
       {Array.from(str).map((char, i) => (

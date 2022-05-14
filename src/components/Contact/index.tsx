@@ -16,15 +16,15 @@ const Contact = () => {
     }, 3000)
   }, [])
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: any) => {
     e.preventDefault()
 
     emailjs
-      .sendForm('gmail', 'template_YeJhZkgb', form.current, 'your-token')
+      .sendForm('gmail', 'template_YeJhZkgb', form.current!, 'your-token')
       .then(
         () => {
           alert('Message successfully sent!')
-          window.location.reload(false)
+          window.location.reload()
         },
         () => {
           alert('Failed to send the message, please try again')
@@ -40,7 +40,7 @@ const Contact = () => {
             <AnimatedLetters
               letterClass={letterClass}
               str="Contact Me"
-              idx={15}
+              index={15}
             />
           </h1>
           <p>
@@ -49,7 +49,11 @@ const Contact = () => {
             don't hesitate to contact me using below form either.
           </p>
           <div className="contact-form">
-            <form ref={form} onSubmit={sendEmail}>
+            <form
+              // @ts-ignore
+              ref={form}
+              onSubmit={sendEmail}
+            >
               <ul>
                 <li className="half">
                   <input placeholder="Name" type="text" name="name" required />
@@ -91,7 +95,12 @@ const Contact = () => {
           <span>freelancerslobodan@gmail.com</span>
         </div>
         <div className="map-wrap">
-          <MapContainer center={[49.198786, 16.622204]} zoom={13}>
+          <MapContainer
+            // @ts-ignore
+            center={[49.198786, 16.622204]}
+            // @ts-ignore
+            zoom={13}
+          >
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
             <Marker position={[49.198786, 16.622204]}>
               <Popup>Sloba lives here, come over for a cup of coffee :)</Popup>
