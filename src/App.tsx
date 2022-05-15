@@ -4,6 +4,7 @@ import Layout from './components/Layout'
 import Home from './components/Home'
 import About from './components/About'
 import Contact from './components/Contact'
+import Aviator from './components/Aviator/aviator'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Route>
+        <Route path="/aviator" element={<Aviator />} />
       </Routes>
     </>
   )
